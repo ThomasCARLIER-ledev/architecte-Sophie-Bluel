@@ -29,7 +29,14 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	
 	line-height: 1;
+	background-color: rgb(255, 254, 248);
+}
+.main-content {
+    max-width: 1140px;
+    margin: 0 auto; /* Pour centrer le contenu */
+    /* ... autres styles de main-content ... */
 }
 ol, ul {
 	list-style: none;
@@ -48,7 +55,7 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
+	/* max-width: 1140px; */
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
@@ -84,6 +91,12 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
 nav ul {
 	display: flex;
 	align-items: center;
@@ -98,6 +111,41 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+header nav ul .instagram-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+
+header nav ul .instagram-link img {
+    position: absolute;
+    display: block;
+  }
+  
+  header nav ul .instagram-link #instagram-1 {
+    opacity: 1;
+  }
+  
+  header nav ul .instagram-link #instagram-2 {
+    opacity: 0;
+  }
+  
+  header nav ul .instagram-link:hover #instagram-1 {
+    opacity: 0;
+  }
+  
+  header nav ul .instagram-link:hover #instagram-2 {
+    opacity: 1;
+  }
+
+.hidden {
+	display: none;
+  }
+ 
 #introduction {
 	display: flex;
 	align-items: center;
@@ -121,10 +169,61 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
+
+/* début de la section portfolio */
+/* #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 20px;
+	margin-top: 150px;
+} */
+.gallery-title {
+	display: flex; /* Active le flexbox */
+	align-items: center; /* Aligne verticalement les éléments */
+	justify-content: center; /* Aligne horizontalement les éléments au début */
+	margin-bottom: 60px;
 }
+  
+.open-modal{
+	color: black;
+	border: none;
+	font-family: Work Sans;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16.42px;
+	letter-spacing: 0%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.filters {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	gap: 20px;
+	
+}
+
+button {
+	font-family: Syne;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19.2px;
+	letter-spacing: 0%;
+	text-align: center;
+
+	color: #1D6154;
+	background-color: rgb(255, 254, 248);
+	border: 2px solid #1D6154; /* Ajout d'une bordure de 2px */
+	border-radius: 20px; /* Ajout d'un arrondi de 20px */
+	padding: 10px 20px; /* Ajout de padding pour un meilleur aspect */
+}
+
+button.selected {
+	background-color: #1D6154;
+	color: rgb(255, 254, 248);
+  }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -135,8 +234,9 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+/* fin de la section portfolio */
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -186,3 +286,345 @@ footer nav ul {
 	margin: 2em
 }
 
+/************************************************************************************************************************/
+
+/* Début de la création de la modale  */
+
+/* Début création du mode édition */
+aside.modale_bar.hidden {
+    display: none;
+}
+
+.modale_bar {
+    
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 59px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor:pointer;
+}
+
+.modale_bar p{
+    margin: 0%;
+}
+
+  i {
+    padding-right: 10px;
+  }
+
+  aside#modal-container {
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(32, 31, 31, 0.3);
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 100;
+    padding-top: 0px;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  #modal-container .modal-wrapper {
+
+    position: relative;
+	  top: 160px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    overflow: auto;
+    box-sizing: border-box;
+    width: 450px;
+    height: 500px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 20px);
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  #modal-container .modal-wrapper .fa-arrow-left {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+	cursor: pointer;
+  }
+
+  #modal-container .modal-wrapper .fa-xmark {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+	cursor: pointer;
+  }
+
+  button{
+    border: none;
+    background: none;
+	  color: black;
+  }
+
+  #modal-container .modal-wrapper h3 {
+    font-size: 26px;
+    font-weight: 400;
+    align-self: center;
+    padding-top: 0px;
+  }
+
+  #modal-container .modal-wrapper .modal-gallery {
+	  margin-left: 40px;
+	  margin-bottom: 20px;
+	  padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: 17% 17% 17% 17% 17%;
+    /* grid-template-rows: 30% 30%; */
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid rgb(179, 179, 179);
+    box-sizing: border-box;
+	  padding-left: 0px;
+    min-height: 250px; /* ou une autre hauteur minimale */
+    overflow-y: auto;
+  }
+
+  #modal-container .modal-wrapper .modal-gallery figure {
+    position: relative;
+  }
+  #modal-container .modal-wrapper .modal-gallery figure img {
+    width: 60px;
+    height: 70px;
+  }
+
+  #modal-container .modal-wrapper .modal-gallery figure .bin-container {
+    position: absolute;
+    z-index: 999;
+    top: 5px;
+    right: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background: rgb(0, 0, 0);
+    width: 15px;
+    height: 17px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  #modal-container .modal-wrapper .modal-gallery figure .bin-container .fa-trash-can {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+  }
+
+  .modal-wrapper { /* Ou le sélecteur du parent direct du bouton */
+    display: flex;
+    justify-content: center;
+}
+
+#modal-container .modal-wrapper .btn-modal {
+    
+    justify-content: center;
+    width: 200px;
+    height: 36px;
+    top: 1200px;
+    left: 600px;
+    border-radius: 60px;
+    margin-left: 115px;
+    margin-right: 0px;
+    margin-top: 20px;
+    color: white;
+    background-color: #1D6154;
+	  cursor: pointer;
+  }
+
+  #modal2-container {
+	  display: none;
+	  position: absolute; /* Ou position: fixed; selon vos besoins */
+    top: 46%; /* Positionnement vertical */
+    left: 50%; /* Positionnement horizontal */
+    transform: translate(-50%, -39%); /* Centrage */
+    width: 450px; /* Ajustez la largeur selon vos besoins */
+	  height: 500px;
+    background-color:white; /* Ajustez la couleur de fond */
+   
+    border-radius: 10px;
+   	z-index: 3000;
+  }
+
+  #modal2-container .fa-xmark {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+	  cursor: pointer;
+  }
+
+  #modal2-container .fa-arrow-left {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+	cursor: pointer;
+  }
+
+  #modal2-container h3 {
+	  display: flex;
+	  justify-content: center;
+    font-size: 26px;
+    font-weight: 400;
+    align-self: center;
+    padding-top: 30px;
+	  padding-bottom: 15px;
+  }
+
+ 
+  #modal2-container .upload-works .upload-img {
+    /* padding-top: 10px; */
+	  margin-left: 50px;
+    width: 350px;
+    height: 110px;
+    background: rgb(232, 241, 246);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrage horizontal */
+    justify-content: center; /* Ajout du centrage vertical */
+    gap: 10px;
+  }
+
+  #modal2-container .upload-works .upload-img .img-placeholder {
+    position: relative;
+    top:45px;
+    fill: rgb(185, 197, 204);
+    width: 40px;
+    margin-top: -40px;
+  }
+
+  #modal2-container .upload-works .upload-img label {
+    position: relative;
+	  top:40px;
+	  color: rgb(255, 255, 255);
+    padding: 8px 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 60px;
+    background-color: rgb(203, 214, 220);
+    color: rgb(48, 102, 133);
+    cursor: pointer;
+  }
+
+  #modal2-container .upload-works .upload-img p {
+    position: relative;
+	  top: 30px;
+	  color: rgb(68, 68, 68);
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: -15px;
+    padding-bottom: 30px;
+  }
+  
+  #modal2-container .upload-works .upload-img input {
+    display: none;
+  }
+
+  #modal2-container .upload-works .upload-img img {
+    object-fit: cover;
+    height: 100%;
+    display: none;
+  }
+
+  #modal2-container .upload-works .upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid rgb(179, 179, 179);
+    padding-bottom: 20px;
+  }
+
+  #modal2-container .upload-works .upload-form label {
+    margin-bottom: 10px;
+	  margin-top: 20px;
+	  margin-left: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Work Sans";
+  }
+
+  #modal2-container .upload-works .upload-form input, #modal-container .modal-wrapper .upload-works .upload-form select {
+    background-color: rgb(255, 255, 255);
+    width: 350px;
+    height: 51px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    margin-left: 50px;
+	  box-shadow: 0px 4px 14px 0px #00000017;
+	  border:none;
+    font-family: Work Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    padding-left: 10px;
+    color: #444444;
+  }
+
+  select#addCat{
+	  background-color: rgb(255, 255, 255);
+    width: 350px;
+    height: 51px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    margin-left: 50px;
+	  box-shadow: 0px 4px 14px 0px #00000017;
+	  border:none;
+    font-family: Work Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    padding-left: 10px;
+    color: #444444;
+  }
+
+  #modal2-container .upload-works #upload-form-submit {
+    display: block;
+    width: 200px;
+    height: 36px;
+    align-content: center;
+    /* background-color: #a7a7a7; */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 0;
+  }
+
+  #modal2-container .upload-works #upload-form-submit {
+    background-color: #1D6154; /* Vert par défaut */
+    color: white;
+}
+
+#modal2-container .upload-works #upload-form-submit.btn-grey {
+    background-color: #a7a7a7; /* Gris */
+}
+
+  #modal2-container .upload-works .error-modal {
+    color: #b1663c;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }

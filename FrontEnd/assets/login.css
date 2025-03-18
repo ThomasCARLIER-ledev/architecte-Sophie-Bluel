@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: auto;
+    font-family: "Work Sans";
+    font-size: 14px;
+    background-color: rgb(255, 254, 248);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header, section {
+    max-width: 1140px;
+    margin: 50px auto;
+  }
+  
+  h2 {
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 30px;
+    color: rgb(29, 97, 84);
+  }
+  
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .unselectable {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  
+  body {
+    line-height: 1;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  blockquote, q {
+    quotes: none;
+  }
+  
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: "";
+    content: none;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .btn {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: "Syne";
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 60px;
+    cursor: pointer;
+  }
+  
+  .btn-green {
+    background-color: rgb(29, 97, 84);
+  }
+  
+  header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 98%;
+  }
+  
+  header nav ul {
+    flex-flow: row wrap;
+  }
+  
+  header nav ul .instagram-link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+  
+  header nav ul .instagram-link img {
+    position: absolute;
+    display: block;
+  }
+  
+  header nav ul .instagram-link #instagram-1 {
+    opacity: 1;
+  }
+  
+  header nav ul .instagram-link #instagram-2 {
+    opacity: 0;
+  }
+  
+  header nav ul .instagram-link:hover #instagram-1 {
+    opacity: 0;
+  }
+  
+  header nav ul .instagram-link:hover #instagram-2 {
+    opacity: 1;
+  }
+  
+  h1 {
+    display: flex;
+    flex-direction: column;
+    font-family: "Syne";
+    font-size: 22px;
+    font-weight: 800;
+    color: #b1663c;
+  }
+  
+  h1 span {
+    font-family: "Work Sans";
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  
+  footer nav ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2em 8em 2em 0;
+    background-color: white;
+  }
+  
+  footer nav ul li {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+  footer {
+    margin-top: auto;
+  }
+  
+  nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 20px;
+  }
+  
+  nav ul li {
+    padding: 0 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  nav ul li:hover {
+    color: #b1663c;
+  }
+  
+  .form {
+    margin: auto;
+    text-align: center;
+    width: 30%;
+  }
+  
+  .form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form form {
+    text-align: left;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form form input, .form form textarea {
+    border: none;
+    padding-left: 10px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  }
+  
+  .form form input {
+    height: 50px;
+    font-size: 1.2em;
+  }
+  
+  .form form textarea {
+    padding: 5px 0 0 5px;
+  }
+  
+  .form form label {
+    margin: 2em 0 1em 0;
+  }
+  
+  .form form input[type=submit] {
+    margin: 2em auto;
+    width: 180px;
+  }
+  
+  .form a:hover {
+    text-decoration: underline;
+  }
+  
+  .logged_in {
+    cursor: default;
+    font-weight: 800;
+  }
+  
+  .logged_in:hover {
+    color: inherit;
+  }
+  
+  #log-in h2 {
+    margin-bottom: -20px;
+  }
+
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+    text-align: center;
+    }

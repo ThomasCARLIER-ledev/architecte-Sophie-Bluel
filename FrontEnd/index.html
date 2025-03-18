@@ -1,32 +1,98 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="./script/index.js" defer></script>
+	<script src="./script/modale.js" defer></script>
 </head>
+
 <body>
+<!-- Création de la modale -->
+
+<aside class="modale_bar">
+	<p><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
+</aside>
+
+<aside id="modal-container">
+	<div class="modal-wrapper">
+		<button><i class="fa-solid fa-xl fa-arrow-left"></i></button>
+		<button><i class="fa-solid fa-lg fa-xmark"></i></button>
+
+		<h3>Galerie photo</h3>
+
+		<section class="modal-gallery"></section>
+
+		<button class="btn btn-green btn-modal unselectable">Ajouter une photo</button>
+	
+	</div>
+
+	<aside id="modal2-container">
+		<button><i class="fa-solid fa-xl fa-arrow-left"></i></button>
+		<button><i class="fa-solid fa-lg fa-xmark"></i></button>
+
+		<h3>Ajout photo</h3>
+
+		<form class="upload-works" action="#" method="post" autocomplete="off">
+			<div class="upload-img">				
+				<svg class="img-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
+				<label for="input-img">+ Ajouter photo</label>
+				<input type="file" accept="image/png, image/jpeg" id="input-img">
+				<p>jpg, png : 4Mo max</p>
+				<img src="#" alt="Aperçu de l'image à ajouter">
+			</div>
+	
+			<div class="upload-form" >
+				<label for="addTitle">Titre</label>
+				<input type="text" id="addTitle" name="addTitle">
+				<label for="addCat">Catégorie</label>
+				<select name="addCat" id="addCat" autocomplete="off">							
+				</select>
+			</div>
+			<p class="error-modal"></p>
+			<input class="btn unselectable btn-grey" type="submit" id="upload-form-submit" value="valider">
+		</form>
+	</aside>
+</aside>
+
+
+
+<div class="main-content">
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			<li><a href="./index.html#portfolio">projets</a></li>
+			<li><a href="./index.html#contact">contact</a></li>
+			<li id="login" class="hidden"><a href="login.html">login</a></li>
+			<li id="logout" class="hidden"><a href="index.html">logout</a></li>
+			<li>
+				<a class="instagram-link" href="#">
+					<img id="instagram-1" src="./assets/icons/instagram.png" alt="Instagram">
+					<img id="instagram-2" src="./assets/icons/instagram-orange.png" alt="Instagram">
+				</a>
+			</li>
 		</ul>
 	</nav>
 </header>
+
 <main>
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
 		</figure>
+
 		<article>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
@@ -34,65 +100,26 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+	
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		<div class="gallery">
-			<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
-		</div>
+		
+		
 	</section>
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
+
 		<form action="#" method="post">
 			<label for="name">Nom</label>
 			<input type="text" name="name" id="name">
+
 			<label for="email">Email</label>
 			<input type="email" name="email" id="email">
+
 			<label for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			
 			<input type="submit" value="Envoyer">
 		</form>
 	</section>
@@ -105,5 +132,6 @@
 		</ul>
 	</nav>
 </footer>
+</div>
 </body>
 </html>
